@@ -180,80 +180,78 @@
 
     <!-- PÁGINA 4 - Criar Projeto -->
     <div id="page4" class="page hidden-page px-8 max-w-4xl mx-auto">
-    <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Vamos criar a tua vibe!</h1>
-    <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Vamos criar a tua vibe!</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
         Personaliza o teu projeto com os seguintes elementos:
-    </p>
+      </p>
 
-    <!-- Tonalidade -->
-    <div class="mb-8">
+      <!-- Tonalidade -->
+      <div class="mb-8">
         <h2 class="text-2xl mb-4 text-white">Escolhe uma tonalidade:</h2>
-        <input type="text" placeholder="ex: Dó Maior, Lá menor..." class="w-full p-4 rounded-xl bg-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-400" />
-    </div>
+        <input id="tonalidade" type="text" placeholder="ex: Dó Maior, Lá menor..." class="w-full p-4 rounded-xl bg-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+      </div>
 
-    <!-- Tempo (BPM) -->
-    <div class="mb-8">
+      <!-- Tempo (BPM) -->
+      <div class="mb-8">
         <h2 class="text-2xl mb-4 text-white">Escolhe o tempo (BPM):</h2>
-        <input type="range" min="60" max="180" value="120" class="w-full accent-cyan-400" id="bpmSlider" />
+        <input type="range" min="60" max="180" value="120" class="w-full accent-cyan-400" id="bpmSlider" oninput="document.getElementById('bpmValue').innerText = this.value" />
         <p class="text-white mt-2">Tempo: <span id="bpmValue">120</span> BPM</p>
-    </div>
+      </div>
 
-    <!-- Emoções -->
-    <div class="mb-10">
+      <!-- Emoções -->
+      <div class="mb-10">
         <h2 class="text-2xl mb-4 text-white">Escolhe as emoções:</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Feliz" class="hidden" />
             Feliz
-        </label>
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          </label>
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Triste" class="hidden" />
             Triste
-        </label>
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          </label>
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Energético" class="hidden" />
             Energético
-        </label>
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          </label>
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Calmo" class="hidden" />
             Calmo
-        </label>
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          </label>
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Misterioso" class="hidden" />
             Misterioso
-        </label>
-        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
-            <input type="checkbox" class="hidden" />
+          </label>
+          <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" name="emocao" value="Sonhador" class="hidden" />
             Sonhador
-        </label>
+          </label>
         </div>
-    </div>
+      </div>
 
-    <!-- Botão de Gerar -->
-    <div class="flex justify-between mt-10 px-10">
+      <!-- Botão de Gerar -->
+      <div class="flex justify-between mt-10 px-10">
         <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
 
         <button
-        class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition"
-        onclick="window.location.href='https://teulink.com/gerar-melodia'" <!-- SUBSTITUI ESTE LINK -->
+          class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition"
+          onclick="gerarMelodia()"
         >
-        Gerar Melodia
+          Gerar Melodia
         </button>
+      </div>
     </div>
-    </div>
-
+  </div>
 
   <script>
     let currentPage = 1;
 
     function nextPage() {
       const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
-      if(currentPage === 1 && !selectedNivel) {
+      if (currentPage === 1 && !selectedNivel) {
         alert('Por favor, seleciona o teu nível de conhecimento.');
         return;
       }
-
-      // Adicional validações podem ser feitas aqui para outras páginas
 
       document.getElementById(`page${currentPage}`).classList.add('hidden-page');
       currentPage++;
@@ -262,7 +260,7 @@
     }
 
     function prevPage() {
-      if(currentPage > 1){
+      if (currentPage > 1) {
         document.getElementById(`page${currentPage}`).classList.add('hidden-page');
         currentPage--;
         const prev = document.getElementById(`page${currentPage}`);
@@ -271,7 +269,6 @@
     }
 
     function selectCard(el, group) {
-      // Deselect all cards in this group
       document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
         c.classList.remove('selected');
       });
@@ -281,16 +278,12 @@
     function toggleCard(labelEl) {
       const checkbox = labelEl.querySelector('input[type="checkbox"]');
       checkbox.checked = !checkbox.checked;
-      if(checkbox.checked) {
-        labelEl.classList.add('selected');
-      } else {
-        labelEl.classList.remove('selected');
-      }
+      labelEl.classList.toggle('selected', checkbox.checked);
     }
 
     function gerarMelodia() {
       const tonalidade = document.getElementById('tonalidade').value.trim();
-      const tempo = document.getElementById('tempo').value;
+      const bpm = document.getElementById('bpmSlider').value;
       const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
       const emocoes = Array.from(emocaoEls).map(el => el.value);
 
@@ -303,11 +296,12 @@
         return;
       }
 
+      // Alerta ou redirecionamento
       alert(
-        `Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`
+        `🎵 A criar melodia com:\n\n🔑 Tonalidade: ${tonalidade}\n⏱️ Tempo: ${bpm} BPM\n💫 Emoções: ${emocoes.join(', ')}`
       );
 
-      // Aqui podes ligar ao backend ou API para gerar música
+      // window.location.href = 'https://teulink.com/gerar-melodia';
     }
   </script>
 
