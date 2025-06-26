@@ -51,7 +51,69 @@
 <body>
   <div class="w-full max-w-4xl py-10 bg-black/20 rounded-3xl shadow-xl">
     
-    <!-- [Todas as páginas anteriores estão iguais até à PÁGINA 3] -->
+    <!-- PÁGINA 1 -->
+    <div id="page1" class="page">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Bem-vindo!</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Vamos criar uma experiência musical única baseada no teu estilo, emoções e preferências. Pronto para começar?
+      </p>
+
+      <h2 class="text-3xl mb-6 text-cyan-100 text-center">Qual o teu nível de conhecimento?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10">
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="iniciante.png" alt="Iniciante" class="w-20 h-20 mb-4" />
+          Iniciante
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="intermedio.png" alt="Intermédio" class="w-20 h-20 mb-4" />
+          Intermédio
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="avancado.png" alt="Avançado" class="w-20 h-20 mb-4" />
+          Avançado
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="pro.png" alt="Pro" class="w-20 h-20 mb-4" />
+          Pro
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2 -->
+    <div id="page2" class="page hidden-page">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Para que vais usar a aplicação?</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Escolhe a opção que melhor descreve o teu propósito.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10">
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="profissao.png" alt="Profissão" class="w-20 h-20 mb-4" />
+          Profissão
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="diversao.png" alt="Diversão" class="w-20 h-20 mb-4" />
+          Só diversão
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="skills.png" alt="Melhorar Skills" class="w-20 h-20 mb-4" />
+          Melhorar Skills
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="outros.png" alt="Outros" class="w-20 h-20 mb-4" />
+          Outros
+        </div>
+      </div>
+
+      <div class="flex justify-between mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+      </div>
+    </div>
 
     <!-- PÁGINA 3 - Preferências de Estilo Musical -->
     <div id="page3" class="page hidden-page px-8 max-w-4xl mx-auto">
