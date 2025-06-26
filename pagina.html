@@ -235,72 +235,97 @@
   </div>
 
   <script>
-    let currentPage = 1;
+  let currentPage = 1;
 
-    function nextPage() {
+  function nextPage() {
+    if (currentPage === 1) {
       const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
-      if(currentPage === 1 && !selectedNivel) {
+      if (!selectedNivel) {
         alert('Por favor, seleciona o teu nível de conhecimento.');
         return;
       }
+    }
 
-      // Adicional validações podem ser feitas aqui para outras páginas
+    if (currentPage === 2) {
+      const selectedProposito = document.querySelector('.card.selected[data-group="proposito"]');
+      if (!selectedProposito) {
+        alert('Por favor, seleciona o propósito da aplicação.');
+        return;
+      }
+    }
 
+    if (currentPage === 3) {
+      const estilosSelecionados = document.querySelectorAll('input[name="estilo"]:checked');
+      if (estilosSelecionados.length === 0) {
+        alert('Por favor, seleciona pelo menos um estilo musical.');
+        return;
+      }
+    }
+
+    document.getElementById(`page${currentPage}`).classList.add('hidden-page');
+    currentPage++;
+    const next = document.getElementById(`page${currentPage}`);
+    if (next) next.classList.remove('hidden-page');
+  }
+
+  function prevPage() {
+    if(currentPage > 1){
       document.getElementById(`page${currentPage}`).classList.add('hidden-page');
-      currentPage++;
-      const next = document.getElementById(`page${currentPage}`);
-      if (next) next.classList.remove('hidden-page');
+      currentPage--;
+      const prev = document.getElementById(`page${currentPage}`);
+      if (prev) prev.classList.remove('hidden-page');
+    }
+  }
+
+  function selectCard(el, group) {
+    document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
+      c.classList.remove('selected');
+    });
+    el.classList.add('selected');
+  }
+
+  function toggleCard(labelEl) {
+    const checkbox = labelEl.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    if(checkbox.checked) {
+      labelEl.classList.add('selected');
+    } else {
+      labelEl.classList.remove('selected');
+    }
+  }
+
+  function gerarMelodia() {
+    const tonalidade = document.getElementById('tonalidade').value.trim();
+    const tempo = document.getElementById('tempo').value;
+    const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
+    const emocoes = Array.from(emocaoEls).map(el => el.value);
+
+    if (!tonalidade) {
+      alert('Por favor, descreve a tonalidade.');
+      return;
     }
 
-    function prevPage() {
-      if(currentPage > 1){
-        document.getElementById(`page${currentPage}`).classList.add('hidden-page');
-        currentPage--;
-        const prev = document.getElementById(`page${currentPage}`);
-        if (prev) prev.classList.remove('hidden-page');
-      }
+    if (emocoes.length === 0) {
+      alert('Por favor, seleciona pelo menos uma emoção.');
+      return;
     }
 
-    function selectCard(el, group) {
-      // Deselect all cards in this group
-      document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
-        c.classList.remove('selected');
-      });
-      el.classList.add('selected');
-    }
+    alert(
+      `Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`
+    );
 
-    function toggleCard(labelEl) {
-      const checkbox = labelEl.querySelector('input[type="checkbox"]');
-      checkbox.checked = !checkbox.checked;
-      if(checkbox.checked) {
-        labelEl.classList.add('selected');
-      } else {
-        labelEl.classList.remove('selected');
-      }
-    }
+    // Aqui podes ligar ao backend ou API para gerar música
+  }
 
-    function gerarMelodia() {
-      const tonalidade = document.getElementById('tonalidade').value.trim();
-      const tempo = document.getElementById('tempo').value;
-      const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
-      const emocoes = Array.from(emocaoEls).map(el => el.value);
-
-      if (!tonalidade) {
-        alert('Por favor, descreve a tonalidade.');
-        return;
-      }
-      if (emocoes.length === 0) {
-        alert('Por favor, seleciona pelo menos uma emoção.');
-        return;
-      }
-
-      alert(
-        `Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`
-      );
-
-      // Aqui podes ligar ao backend ou API para gerar música
-    }
-  </script>
+  // Atualiza o output do BPM em tempo real
+  document.addEventListener('DOMContentLoaded', () => {
+    const tempoSlider = document.getElementById('tempo');
+    const tempoOutput = document.getElementById('tempoOutput');
+    tempoSlider.addEventListener('input', () => {
+      tempoOutput.textContent = `${tempoSlider.value} BPM`;
+    });
+  });
+</script>
 
 </body>
 </html>
