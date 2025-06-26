@@ -49,8 +49,8 @@
   </style>
 </head>
 <body>
+
   <div class="w-full max-w-4xl py-10 bg-black/20 rounded-3xl shadow-xl">
-    
     <!-- PÁGINA 1 -->
     <div id="page1" class="page">
       <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Bem-vindo!</h1>
@@ -117,120 +117,222 @@
 
     <!-- PÁGINA 3 - Preferências de Estilo Musical -->
     <div id="page3" class="page hidden-page px-8 max-w-4xl mx-auto">
-      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Que estilos musicais gostas?</h1>
-      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">Escolhe um ou vários estilos que mais te inspiram:</p>
+    <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Que estilos musicais gostas?</h1>
+    <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Escolhe um ou vários estilos que mais te inspiram:
+    </p>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
-        <!-- Estilos existentes -->
-        <!-- ... outros estilos ... -->
-
-        <!-- Reggae -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
         <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
-          <input type="checkbox" name="estilo" value="Reggae" class="hidden" />
-          <img src="reggae.png" alt="Reggae" class="w-20 h-20 mb-3" />
-          Reggae
+        <input type="checkbox" name="estilo" value="Clássica" class="hidden" />
+        <img src="classica.png" alt="Clássica" class="w-20 h-20 mb-3" />
+        Clássica
         </label>
-      </div>
-
-      <div class="flex justify-between mt-10 px-10">
-        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
-        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
-      </div>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Pop" class="hidden" />
+        <img src="pop.png" alt="Pop" class="w-20 h-20 mb-3" />
+        Pop
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="R&B" class="hidden" />
+        <img src="rnb.png" alt="R&B" class="w-20 h-20 mb-3" />
+        R&B
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="House" class="hidden" />
+        <img src="house.png" alt="House" class="w-20 h-20 mb-3" />
+        House
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Rock" class="hidden" />
+        <img src="rock.png" alt="Rock" class="w-20 h-20 mb-3" />
+        Rock
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Jazz" class="hidden" />
+        <img src="jazz.png" alt="Jazz" class="w-20 h-20 mb-3" />
+        Jazz
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Electrónica" class="hidden" />
+        <img src="electronica.png" alt="Electrónica" class="w-20 h-20 mb-3" />
+        Electrónica
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Hip Hop" class="hidden" />
+        <img src="hiphop.png" alt="Hip Hop" class="w-20 h-20 mb-3" />
+        Hip Hop
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Reggae" class="hidden" />
+        <img src="reggae.png" alt="Reggae" class="w-20 h-20 mb-3" />
+        Reggae
+        </label>
     </div>
 
-    <!-- PÁGINA 4 - Criar Projeto Musical (sem mudanças) -->
-    <!-- ... [página 4 igual à tua original] ... -->
+    <div class="flex justify-between mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+    </div>
+    </div>
 
+
+    <!-- PÁGINA 4 - Criar Projeto Musical -->
+    <div id="page4" class="page hidden-page px-8 max-w-3xl mx-auto">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Cria o teu projeto</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Define as características do teu novo projeto musical:
+      </p>
+
+      <!-- Tonalidade -->
+      <div class="mb-10">
+        <label for="tonalidade" class="block mb-3 text-2xl font-semibold text-cyan-100">
+          Tonalidade (descreve a atmosfera)
+        </label>
+        <textarea id="tonalidade" rows="4" placeholder="Ex: Som alegre, melódico e suave..." 
+          class="w-full rounded-xl p-4 bg-white/10 border border-white/30 text-white placeholder-white/70
+          focus:outline-none focus:ring-2 focus:ring-cyan-300 resize-none"></textarea>
+      </div>
+
+      <!-- Tempo -->
+      <div class="mb-10">
+        <label for="tempo" class="block mb-3 text-2xl font-semibold text-cyan-100">Tempo (BPM)</label>
+        <input type="range" id="tempo" min="40" max="200" value="100" step="1" class="w-full cursor-pointer" />
+        <output id="tempoOutput" class="block mt-3 text-white text-xl text-center">100 BPM</output>
+      </div>
+
+      <!-- Emoções -->
+      <div class="mb-10">
+        <label class="block mb-5 text-2xl font-semibold text-cyan-100">Emoção(s) que queres transmitir</label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Feliz" class="accent-cyan-400 w-6 h-6" />
+            <span>Feliz</span>
+          </label>
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Triste" class="accent-cyan-400 w-6 h-6" />
+            <span>Triste</span>
+          </label>
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Calmo" class="accent-cyan-400 w-6 h-6" />
+            <span>Calmo</span>
+          </label>
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Energetico" class="accent-cyan-400 w-6 h-6" />
+            <span>Enérgético</span>
+          </label>
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Romântico" class="accent-cyan-400 w-6 h-6" />
+            <span>Romântico</span>
+          </label>
+          <label class="cursor-pointer flex items-center space-x-3 text-lg">
+            <input type="checkbox" name="emocao" value="Dramático" class="accent-cyan-400 w-6 h-6" />
+            <span>Dramático</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between mb-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+        <button id="gerarBtn" class="px-14 py-4 text-2xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="gerarMelodia()">Gerar Melodia</button>
+      </div>
+    </div>
   </div>
 
   <script>
-    let currentPage = 1;
+  let currentPage = 1;
 
-    function nextPage() {
-      if (currentPage === 1) {
-        const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
-        if (!selectedNivel) {
-          alert('Por favor, seleciona o teu nível de conhecimento.');
-          return;
-        }
+  function nextPage() {
+    // Validação da página atual
+    if (currentPage === 1) {
+      const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
+      if (!selectedNivel) {
+        alert('Por favor, seleciona o teu nível de conhecimento.');
+        return;
       }
+    }
 
-      if (currentPage === 2) {
-        const selectedProposito = document.querySelector('.card.selected[data-group="proposito"]');
-        if (!selectedProposito) {
-          alert('Por favor, seleciona o propósito de uso.');
-          return;
-        }
+    if (currentPage === 2) {
+      const selectedProposito = document.querySelector('.card.selected[data-group="proposito"]');
+      if (!selectedProposito) {
+        alert('Por favor, seleciona o propósito de uso.');
+        return;
       }
+    }
 
-      if (currentPage === 3) {
-        const estilosSelecionados = document.querySelectorAll('input[name="estilo"]:checked');
-        if (estilosSelecionados.length === 0) {
-          alert('Por favor, escolhe pelo menos um estilo musical.');
-          return;
-        }
+    if (currentPage === 3) {
+      const estilosSelecionados = document.querySelectorAll('input[name="estilo"]:checked');
+      if (estilosSelecionados.length === 0) {
+        alert('Por favor, escolhe pelo menos um estilo musical.');
+        return;
       }
+    }
 
+    document.getElementById(`page${currentPage}`).classList.add('hidden-page');
+    currentPage++;
+    const next = document.getElementById(`page${currentPage}`);
+    if (next) next.classList.remove('hidden-page');
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
       document.getElementById(`page${currentPage}`).classList.add('hidden-page');
-      currentPage++;
-      const next = document.getElementById(`page${currentPage}`);
-      if (next) next.classList.remove('hidden-page');
+      currentPage--;
+      const prev = document.getElementById(`page${currentPage}`);
+      if (prev) prev.classList.remove('hidden-page');
     }
+  }
 
-    function prevPage() {
-      if (currentPage > 1) {
-        document.getElementById(`page${currentPage}`).classList.add('hidden-page');
-        currentPage--;
-        const prev = document.getElementById(`page${currentPage}`);
-        if (prev) prev.classList.remove('hidden-page');
-      }
-    }
-
-    function selectCard(el, group) {
-      document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
-        c.classList.remove('selected');
-      });
-      el.classList.add('selected');
-    }
-
-    function toggleCard(labelEl) {
-      const checkbox = labelEl.querySelector('input[type="checkbox"]');
-      checkbox.checked = !checkbox.checked;
-      if (checkbox.checked) {
-        labelEl.classList.add('selected');
-      } else {
-        labelEl.classList.remove('selected');
-      }
-    }
-
-    function gerarMelodia() {
-      const tonalidade = document.getElementById('tonalidade').value.trim();
-      const tempo = document.getElementById('tempo').value;
-      const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
-      const emocoes = Array.from(emocaoEls).map(el => el.value);
-
-      if (!tonalidade) {
-        alert('Por favor, descreve a tonalidade.');
-        return;
-      }
-      if (emocoes.length === 0) {
-        alert('Por favor, seleciona pelo menos uma emoção.');
-        return;
-      }
-
-      alert(`Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`);
-      // Aqui podes ligar ao backend ou API para gerar música
-    }
-
-    // Atualiza o valor do output BPM em tempo real
-    document.addEventListener('DOMContentLoaded', () => {
-      const tempo = document.getElementById('tempo');
-      const tempoOutput = document.getElementById('tempoOutput');
-
-      tempo.addEventListener('input', () => {
-        tempoOutput.textContent = `${tempo.value} BPM`;
-      });
+  function selectCard(el, group) {
+    // Deselect all cards in this group
+    document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
+      c.classList.remove('selected');
     });
-  </script>
+    el.classList.add('selected');
+  }
+
+  function toggleCard(labelEl) {
+    const checkbox = labelEl.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    if (checkbox.checked) {
+      labelEl.classList.add('selected');
+    } else {
+      labelEl.classList.remove('selected');
+    }
+  }
+
+  function gerarMelodia() {
+    const tonalidade = document.getElementById('tonalidade').value.trim();
+    const tempo = document.getElementById('tempo').value;
+    const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
+    const emocoes = Array.from(emocaoEls).map(el => el.value);
+
+    if (!tonalidade) {
+      alert('Por favor, descreve a tonalidade.');
+      return;
+    }
+    if (emocoes.length === 0) {
+      alert('Por favor, seleciona pelo menos uma emoção.');
+      return;
+    }
+
+    alert(
+      `Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`
+    );
+
+    // Aqui podes ligar ao backend ou API para gerar música
+  }
+
+  // Atualização do valor do BPM com "BPM"
+  document.addEventListener('DOMContentLoaded', () => {
+    const tempo = document.getElementById('tempo');
+    const tempoOutput = document.getElementById('tempoOutput');
+
+    tempo.addEventListener('input', () => {
+      tempoOutput.textContent = `${tempo.value} BPM`;
+    });
+  });
+</script>
+
 </body>
 </html>
