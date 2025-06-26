@@ -192,7 +192,7 @@
       <!-- Tempo -->
       <div class="mb-10">
         <label for="tempo" class="block mb-3 text-2xl font-semibold text-cyan-100">Tempo (BPM)</label>
-        <input type="range" id="tempo" min="40" max="200" value="100" step="1" class="w-full cursor-pointer" oninput="tempoOutput.value = tempo.value" />
+        <input type="range" id="tempo" min="40" max="200" value="100" step="1" class="w-full cursor-pointer" />
         <output id="tempoOutput" class="block mt-3 text-white text-xl text-center">100 BPM</output>
       </div>
 
@@ -238,6 +238,7 @@
   let currentPage = 1;
 
   function nextPage() {
+    // Validação da página atual
     if (currentPage === 1) {
       const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
       if (!selectedNivel) {
@@ -249,7 +250,7 @@
     if (currentPage === 2) {
       const selectedProposito = document.querySelector('.card.selected[data-group="proposito"]');
       if (!selectedProposito) {
-        alert('Por favor, seleciona o propósito da aplicação.');
+        alert('Por favor, seleciona o propósito de uso.');
         return;
       }
     }
@@ -257,7 +258,7 @@
     if (currentPage === 3) {
       const estilosSelecionados = document.querySelectorAll('input[name="estilo"]:checked');
       if (estilosSelecionados.length === 0) {
-        alert('Por favor, seleciona pelo menos um estilo musical.');
+        alert('Por favor, escolhe pelo menos um estilo musical.');
         return;
       }
     }
@@ -269,7 +270,7 @@
   }
 
   function prevPage() {
-    if(currentPage > 1){
+    if (currentPage > 1) {
       document.getElementById(`page${currentPage}`).classList.add('hidden-page');
       currentPage--;
       const prev = document.getElementById(`page${currentPage}`);
@@ -278,6 +279,7 @@
   }
 
   function selectCard(el, group) {
+    // Deselect all cards in this group
     document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
       c.classList.remove('selected');
     });
@@ -287,7 +289,7 @@
   function toggleCard(labelEl) {
     const checkbox = labelEl.querySelector('input[type="checkbox"]');
     checkbox.checked = !checkbox.checked;
-    if(checkbox.checked) {
+    if (checkbox.checked) {
       labelEl.classList.add('selected');
     } else {
       labelEl.classList.remove('selected');
@@ -304,7 +306,6 @@
       alert('Por favor, descreve a tonalidade.');
       return;
     }
-
     if (emocoes.length === 0) {
       alert('Por favor, seleciona pelo menos uma emoção.');
       return;
@@ -317,12 +318,13 @@
     // Aqui podes ligar ao backend ou API para gerar música
   }
 
-  // Atualiza o output do BPM em tempo real
+  // Atualização do valor do BPM com "BPM"
   document.addEventListener('DOMContentLoaded', () => {
-    const tempoSlider = document.getElementById('tempo');
+    const tempo = document.getElementById('tempo');
     const tempoOutput = document.getElementById('tempoOutput');
-    tempoSlider.addEventListener('input', () => {
-      tempoOutput.textContent = `${tempoSlider.value} BPM`;
+
+    tempo.addEventListener('input', () => {
+      tempoOutput.textContent = `${tempo.value} BPM`;
     });
   });
 </script>
