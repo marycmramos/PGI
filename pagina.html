@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inquérito Futurista - Criar Projeto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(-45deg, #4b1a6f, #5e2486, #9e1f98);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card.selected {
+      border-color: #00ffe7;
+      box-shadow: 0 0 10px #00ffe7;
+    }
+
+    .card.selected img {
+      filter: drop-shadow(0 0 6px #00ffe7);
+    }
+
+    .hidden-page {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w-full max-w-4xl py-10 bg-black/20 rounded-3xl shadow-xl">
+    <!-- PÁGINA 1 -->
+    <div id="page1" class="page">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Bem-vindo!</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Vamos criar uma experiência musical única baseada no teu estilo, emoções e preferências. Pronto para começar?
+      </p>
+
+      <h2 class="text-3xl mb-6 text-cyan-100 text-center">Qual o teu nível de conhecimento?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10">
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="iniciante.png" alt="Iniciante" class="w-20 h-20 mb-4" />
+          Iniciante
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="intermedio.png" alt="Intermédio" class="w-20 h-20 mb-4" />
+          Intermédio
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="avancado.png" alt="Avançado" class="w-20 h-20 mb-4" />
+          Avançado
+        </div>
+        <div data-group="nivel" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'nivel')">
+          <img src="pro.png" alt="Pro" class="w-20 h-20 mb-4" />
+          Pro
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2 -->
+    <div id="page2" class="page hidden-page">
+      <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Para que vais usar a aplicação?</h1>
+      <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Escolhe a opção que melhor descreve o teu propósito.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-10">
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="profissao.png" alt="Profissão" class="w-20 h-20 mb-4" />
+          Profissão
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="diversao.png" alt="Diversão" class="w-20 h-20 mb-4" />
+          Só diversão
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="skills.png" alt="Melhorar Skills" class="w-20 h-20 mb-4" />
+          Melhorar Skills
+        </div>
+        <div data-group="proposito" class="card flex flex-col items-center justify-center p-8 text-xl rounded-2xl cursor-pointer border-2 border-transparent bg-white/10 hover:bg-white/20 transition text-center" onclick="selectCard(this, 'proposito')">
+          <img src="outros.png" alt="Outros" class="w-20 h-20 mb-4" />
+          Outros
+        </div>
+      </div>
+
+      <div class="flex justify-between mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+      </div>
+    </div>
+
+    <!-- PÁGINA 3 - Preferências de Estilo Musical -->
+    <div id="page3" class="page hidden-page px-8 max-w-4xl mx-auto">
+    <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Que estilos musicais gostas?</h1>
+    <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Escolhe um ou vários estilos que mais te inspiram:
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Clássica" class="hidden" />
+        <img src="classica.png" alt="Clássica" class="w-20 h-20 mb-3" />
+        Clássica
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Pop" class="hidden" />
+        <img src="pop.png" alt="Pop" class="w-20 h-20 mb-3" />
+        Pop
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="R&B" class="hidden" />
+        <img src="rnb.png" alt="R&B" class="w-20 h-20 mb-3" />
+        R&B
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="House" class="hidden" />
+        <img src="house.png" alt="House" class="w-20 h-20 mb-3" />
+        House
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Rock" class="hidden" />
+        <img src="rock.png" alt="Rock" class="w-20 h-20 mb-3" />
+        Rock
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Jazz" class="hidden" />
+        <img src="jazz.png" alt="Jazz" class="w-20 h-20 mb-3" />
+        Jazz
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Electrónica" class="hidden" />
+        <img src="electronica.png" alt="Electrónica" class="w-20 h-20 mb-3" />
+        Electrónica
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Hip Hop" class="hidden" />
+        <img src="hiphop.png" alt="Hip Hop" class="w-20 h-20 mb-3" />
+        Hip Hop
+        </label>
+        <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
+        <input type="checkbox" name="estilo" value="Reggae" class="hidden" />
+        <img src="reggae.png" alt="Reggae" class="w-20 h-20 mb-3" />
+        Reggae
+        </label>
+    </div>
+
+    <div class="flex justify-between mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition" onclick="nextPage()">Avançar</button>
+    </div>
+    </div>
+
+
+
+    <!-- PÁGINA 4 - Criar Projeto -->
+    <div id="page4" class="page hidden-page px-8 max-w-4xl mx-auto">
+    <h1 class="text-5xl md:text-6xl mb-6 text-cyan-300 text-center">Vamos criar a tua vibe!</h1>
+    <p class="text-xl md:text-2xl text-center mb-10 text-white/90">
+        Personaliza o teu projeto com os seguintes elementos:
+    </p>
+
+    <!-- Tonalidade -->
+    <div class="mb-8">
+        <h2 class="text-2xl mb-4 text-white">Escolhe uma tonalidade:</h2>
+        <input type="text" placeholder="ex: Dó Maior, Lá menor..." class="w-full p-4 rounded-xl bg-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+    </div>
+
+    <!-- Tempo (BPM) -->
+    <div class="mb-8">
+        <h2 class="text-2xl mb-4 text-white">Escolhe o tempo (BPM):</h2>
+        <input type="range" min="60" max="180" value="120" class="w-full accent-cyan-400" id="bpmSlider" />
+        <p class="text-white mt-2">Tempo: <span id="bpmValue">120</span> BPM</p>
+    </div>
+
+    <!-- Emoções -->
+    <div class="mb-10">
+        <h2 class="text-2xl mb-4 text-white">Escolhe as emoções:</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Feliz
+        </label>
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Triste
+        </label>
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Energético
+        </label>
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Calmo
+        </label>
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Misterioso
+        </label>
+        <label class="card flex flex-col items-center justify-center p-6 rounded-xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition cursor-pointer text-center text-lg select-none" onclick="toggleCard(this)">
+            <input type="checkbox" class="hidden" />
+            Sonhador
+        </label>
+        </div>
+    </div>
+
+    <!-- Botão de Gerar -->
+    <div class="flex justify-between mt-10 px-10">
+        <button class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gray-700 bg-opacity-40 hover:bg-opacity-60 shadow-xl hover:scale-105 transition" onclick="prevPage()">Voltar</button>
+
+        <button
+        class="px-12 py-4 text-xl rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-400 shadow-xl hover:scale-105 transition"
+        onclick="window.location.href='https://teulink.com/gerar-melodia'" <!-- SUBSTITUI ESTE LINK -->
+        >
+        Gerar Melodia
+        </button>
+    </div>
+    </div>
+
+
+  <script>
+    let currentPage = 1;
+
+    function nextPage() {
+      const selectedNivel = document.querySelector('.card.selected[data-group="nivel"]');
+      if(currentPage === 1 && !selectedNivel) {
+        alert('Por favor, seleciona o teu nível de conhecimento.');
+        return;
+      }
+
+      // Adicional validações podem ser feitas aqui para outras páginas
+
+      document.getElementById(`page${currentPage}`).classList.add('hidden-page');
+      currentPage++;
+      const next = document.getElementById(`page${currentPage}`);
+      if (next) next.classList.remove('hidden-page');
+    }
+
+    function prevPage() {
+      if(currentPage > 1){
+        document.getElementById(`page${currentPage}`).classList.add('hidden-page');
+        currentPage--;
+        const prev = document.getElementById(`page${currentPage}`);
+        if (prev) prev.classList.remove('hidden-page');
+      }
+    }
+
+    function selectCard(el, group) {
+      // Deselect all cards in this group
+      document.querySelectorAll(`.card[data-group="${group}"]`).forEach(c => {
+        c.classList.remove('selected');
+      });
+      el.classList.add('selected');
+    }
+
+    function toggleCard(labelEl) {
+      const checkbox = labelEl.querySelector('input[type="checkbox"]');
+      checkbox.checked = !checkbox.checked;
+      if(checkbox.checked) {
+        labelEl.classList.add('selected');
+      } else {
+        labelEl.classList.remove('selected');
+      }
+    }
+
+    function gerarMelodia() {
+      const tonalidade = document.getElementById('tonalidade').value.trim();
+      const tempo = document.getElementById('tempo').value;
+      const emocaoEls = document.querySelectorAll('input[name="emocao"]:checked');
+      const emocoes = Array.from(emocaoEls).map(el => el.value);
+
+      if (!tonalidade) {
+        alert('Por favor, descreve a tonalidade.');
+        return;
+      }
+      if (emocoes.length === 0) {
+        alert('Por favor, seleciona pelo menos uma emoção.');
+        return;
+      }
+
+      alert(
+        `Melodia a gerar:\n\nTonalidade: ${tonalidade}\nTempo: ${tempo} BPM\nEmoções: ${emocoes.join(', ')}`
+      );
+
+      // Aqui podes ligar ao backend ou API para gerar música
+    }
+  </script>
+
+</body>
+</html>
