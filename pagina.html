@@ -164,7 +164,10 @@
         Hip Hop
         </label>
         <label class="cursor-pointer card p-6 rounded-2xl border-2 border-transparent bg-white/10 hover:bg-white/20 transition flex flex-col items-center justify-center text-center text-xl select-none" onclick="toggleCard(this)">
-
+        <input type="checkbox" name="estilo" value="Reggae" class="hidden" />
+        <img src="reggae.png" alt="Reggae" class="w-20 h-20 mb-3" />
+        Reggae
+        </label>
     </div>
 
     <div class="flex justify-between mt-10 px-10">
@@ -184,9 +187,9 @@
       <!-- Tonalidade -->
       <div class="mb-10">
         <label for="tonalidade" class="block mb-3 text-2xl font-semibold text-cyan-100">
-          Tonalidade
+          Tonalidade (descreve a atmosfera)
         </label>
-        <textarea id="tonalidade" rows="4" placeholder="Ex: Dó menor, Si b maior 7..." 
+        <textarea id="tonalidade" rows="4" placeholder="Ex: Som alegre, melódico e suave..." 
           class="w-full rounded-xl p-4 bg-white/10 border border-white/30 text-white placeholder-white/70
           focus:outline-none focus:ring-2 focus:ring-cyan-300 resize-none"></textarea>
       </div>
